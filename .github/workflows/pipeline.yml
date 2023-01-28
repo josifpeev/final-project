@@ -1,0 +1,21 @@
+name: Create Ansible ECR
+
+on: [push]
+ on:
+ push:
+   branches:
+     - main
+
+jobs:
+  editorconfig-check:
+    name: .editorconfig lint
+    runs-on: ubuntu:22.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: editorconfig-checker/action-editorconfig-checker@v1
+  markdown-lint:
+    name: markdown lint
+    runs-on: ubuntu:22.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: npx markdownlint-cli **/*.md
