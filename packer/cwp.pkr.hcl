@@ -1,14 +1,15 @@
-#{
-#  "variables": {
-#    "aws_access_key": "",
-#    "aws_secret_key": ""
-#  },
+packer{
+  required_plgins {
+    amazon = {
+      version = ">= 0.0.2"
+      source = "github.com/hashicorp/amazon"
+    }
+  }
+}
 
   "builders": [
     {
       "type": "amazon-ebs",
- #     "access_key": "{{user `aws_access_key`}}",
- #     "secret_key": "{{user `aws_secret_key`}}",
       "region": "eu-west-1",
       "instance_type": "t2.micro",
       "source_ami_filter": {
