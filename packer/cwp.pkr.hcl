@@ -21,7 +21,7 @@
         "most_recent": true
       },
       "ssh_username": "ubuntu",
-      "ami_name": "packer-example-{{timestamp}}"
+      "ami_name": "plesk-build-{{timestamp}}"
     }
   ],
 
