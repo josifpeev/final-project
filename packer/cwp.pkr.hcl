@@ -1,12 +1,3 @@
-packer{
-  required_plgins {
-    amazon = {
-      version = ">= 0.0.2"
-      source = "github.com/hashicorp/amazon"
-    }
-  }
-}
-
 packer {
   required_plugins {
     amazon = {
@@ -17,9 +8,9 @@ packer {
 }
 
 source "amazon-ebs" "ubuntu" {
-  ami_name      = "learn-packer-linux-aws"
+  ami_name      = "plesk-build-{timestamp}"
   instance_type = "t2.micro"
-  region        = "us-west-2"
+  region        = "eu-west-1"
   source_ami_filter {
     filters = {
       name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
