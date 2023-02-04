@@ -24,16 +24,14 @@ source "amazon-ebs" "ubuntu" {
 }
 
 build {
-  name    = "learn-packer"
+  name    = "plesk-build"
   sources = [
     "source.amazon-ebs.ubuntu"
   ]
 }
 
 
-  "provisioners": [
-    {
-      "type": "shell",
+provisioner "shell" {
       "inline": [
         "sudo apt-get update",
         "sudo apt-get install -y curl",
@@ -41,7 +39,5 @@ build {
         "sudo apt-get install -y plesk-core plesk-php72-fpm plesk-php73-fpm plesk-php74-fpm",
         "sudo plesk install admin --email {{user `plesk_email`}} --passwd {{user `plesk_password`}}",
         "sudo apt-get upgrade -y"
-      ]
-    }
   ]
 }
