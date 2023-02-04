@@ -8,4 +8,7 @@ resource "aws_instance" "plesk01" {
    tags = {
     Name = "plesk01.final-project.com"
   }
+    security_groups = [
+    aws_security_group.ports
+  ]
 }
