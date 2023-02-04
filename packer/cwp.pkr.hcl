@@ -28,7 +28,7 @@ build {
   sources = [
     "source.amazon-ebs.ubuntu"
   ]
-}
+
 
 
 provisioner "shell" {
@@ -39,5 +39,6 @@ provisioner "shell" {
         "sudo apt-get install -y plesk-core plesk-php72-fpm plesk-php73-fpm plesk-php74-fpm",
         "sudo plesk install admin --email {{user `plesk_email`}} --passwd {{user `plesk_password`}}",
         "sudo apt-get upgrade -y"
-  ]
+    ]
+  }
 }
