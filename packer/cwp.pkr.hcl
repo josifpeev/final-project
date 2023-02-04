@@ -35,7 +35,7 @@ provisioner "shell" {
       inline = [
         "sudo apt-get update",
         "sudo apt-get install -y curl",
-        "sudo  sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O - https://autoinstall.plesk.com/one-click-installer)  
+        "sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O - https://autoinstall.plesk.com/one-click-installer)",
     ]
   }
 }
