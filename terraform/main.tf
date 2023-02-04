@@ -5,13 +5,17 @@ provider "aws" {
 
 # Our Ples servers
 
+resource "aws_eip" "plesk01" {
+  vpc         = true
+  instance    = aws_instance.plesk01.id
+}
+
 resource "aws_instance" "plesk01" {
-  ami           = "ami-0d385ef28de9ef4ea"
+  ami           = "var.ami"
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.ports.id]
   key_name = "plesk_key_pair"
-  associate_public_ip_address = true
-   tags = {
+    tags = {
     Name = "plesk01.final-project.com"
   }
   
