@@ -1,7 +1,7 @@
 packer {
   required_plugins {
     amazon = {
-      version = ">= 1.8.9"
+      version = ">= 0.0.2"
       source  = "github.com/hashicorp/amazon"
     }
   }
@@ -42,3 +42,5 @@ provisioner "shell" {
     ]
   }
 }
+
+[{v0.0.1} {v1.0.0} {v1.0.1-dev} {v1.0.1} {v1.0.2} {v1.0.3} {v1.0.4} {v1.0.5} {v1.0.6} {v1.0.7} {v1.0.8} {v1.0.9} {v1.1.0} {v1.1.1} {v1.1.2} {v1.1.3} {v1.1.4} {v1.1.5} {v1.1.6} {v1.2.0} {v1.2.1}]
