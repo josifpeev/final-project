@@ -32,7 +32,7 @@ build {
 
 
 provisioner "shell" {
-      "inline": [
+      inline = [
         "sudo apt-get update",
         "sudo apt-get install -y curl",
         "sudo curl -s https://autoinstall.plesk.com/plesk-installer | sudo bash",
