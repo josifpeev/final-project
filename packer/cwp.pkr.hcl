@@ -8,7 +8,7 @@ packer {
 }
 
 source "amazon-ebs" "ubuntu" {
-  ami_name      = "plesk-build"
+  ami_name      = "plesk-build-t2.mirco"
   instance_type = "t2.micro"
   region        = "eu-west-1"
   launch_block_device_mappings {
