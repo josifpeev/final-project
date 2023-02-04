@@ -9,7 +9,7 @@ packer {
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "plesk-build"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   region        = "eu-west-1"
   source_ami_filter {
     filters = {
