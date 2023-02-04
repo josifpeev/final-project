@@ -58,14 +58,3 @@ resource "aws_security_group" "ports" {
   }
 }
 
-resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"
-  instance_type = "t2.micro"
-  tags = {
-    Name = "My EC2 Instance"
-  }
-
-  security_groups = [
-    aws_security_group.ports
-  ]
-}
