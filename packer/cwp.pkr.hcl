@@ -35,10 +35,7 @@ provisioner "shell" {
       inline = [
         "sudo apt-get update",
         "sudo apt-get install -y curl",
-        "sudo curl -s https://autoinstall.plesk.com/plesk-installer | sudo bash",
-        "sudo apt-get install -y plesk-core plesk-php72-fpm plesk-php73-fpm plesk-php74-fpm",
-        "sudo plesk install admin --email {{user `plesk_email`}} --passwd {{user `plesk_password`}}",
-        "sudo apt-get upgrade -y"
+        "sudo  sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O - https://autoinstall.plesk.com/one-click-installer)  
     ]
   }
 }
