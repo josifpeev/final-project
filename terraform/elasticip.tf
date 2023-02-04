@@ -1,7 +1,4 @@
 resource "aws_eip" "plesk01" {
   vpc = true
-    association {
-    instance_id = aws_instance.plesk01.id
-
-  }
+  associate_with_private_ip = aws_instance.plesk01.private_ip
 }
