@@ -31,7 +31,7 @@ source "amazon-ebs" "ubuntu" {
     most_recent = true
     owners      = ["099720109477"]
   }
-  ssh_username = "root"
+  ssh_username = "ubuntu"
 }
 
 build {
@@ -50,10 +50,10 @@ provisioner "shell" {
 #        "sudo ./one-click-installer",
 #        "sudo apt clean",
 #        "sudo apt autoremove -y",
-        "sudo mkdir -p /root/.ssh/",
-        "sudo touch /root/.ssh/authorized_keys",
-        "sudo echo \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCGDf/JQFwPxLHI33dPxyAIImARZFdiOGmPcK3TkjqTxV0l97qjea+RxNl2ciF/qme8oSU3docyoyazd1/ivy81+1PzaR7vhxlG6eumjfN0RynC84+kTxc69vu25p0G5VU3xd8c4LI6NJ/OOKWDxUN7xeHTT1TgRc2Xh4OfEPgdsqC0bsSzrScQv2eRh3fSQjF+wYOv0gL6i8TuFRnCwhzkJddnlNA4/Po7LnZDfRvsRAhOgcc9zrbAVHcwDs+osngfWZ58UOYtDmSxV2UwN8BauNLyuxzwRDU7uTv+IaQDrshxsfZvHKHoD+KBWkpf3BR8FInJ0aiK75SznOi2u44/d+oNExZ0AeYYCIP7UipwIW/+IwWJVAb//HOfogqHKWmCo2+BhllRSao6o8UZ5xbwLaxCnRi3pv1yZOkOm1dEQPWkqQsadfXfQiDoyV0wE6JvI7Of9exua8PQT54BL95Kqaw9sZ7jymSPqSaA5b314fY9+B4xDL7POHHBtaNxp5U= root@aws\" > /root/.ssh/authorized_keys",
-        "sudo chmod 600 /root/.ssh/authorized_keys"
+#        "sudo mkdir -p /root/.ssh/",
+#        "sudo touch /root/.ssh/authorized_keys",
+#        "sudo echo \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCGDf/JQFwPxLHI33dPxyAIImARZFdiOGmPcK3TkjqTxV0l97qjea+RxNl2ciF/qme8oSU3docyoyazd1/ivy81+1PzaR7vhxlG6eumjfN0RynC84+kTxc69vu25p0G5VU3xd8c4LI6NJ/OOKWDxUN7xeHTT1TgRc2Xh4OfEPgdsqC0bsSzrScQv2eRh3fSQjF+wYOv0gL6i8TuFRnCwhzkJddnlNA4/Po7LnZDfRvsRAhOgcc9zrbAVHcwDs+osngfWZ58UOYtDmSxV2UwN8BauNLyuxzwRDU7uTv+IaQDrshxsfZvHKHoD+KBWkpf3BR8FInJ0aiK75SznOi2u44/d+oNExZ0AeYYCIP7UipwIW/+IwWJVAb//HOfogqHKWmCo2+BhllRSao6o8UZ5xbwLaxCnRi3pv1yZOkOm1dEQPWkqQsadfXfQiDoyV0wE6JvI7Of9exua8PQT54BL95Kqaw9sZ7jymSPqSaA5b314fY9+B4xDL7POHHBtaNxp5U= root@aws\" > /root/.ssh/authorized_keys",
+#        "sudo chmod 600 /root/.ssh/authorized_keys"
 
 
     ]
