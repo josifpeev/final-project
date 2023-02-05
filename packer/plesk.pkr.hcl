@@ -42,11 +42,11 @@ build {
 provisioner "shell" {
       inline = [
         "sudo apt-get update",
-        "sudo apt-get install -y curl",
         "sudo wget https://autoinstall.plesk.com/one-click-installer",
         "sudo chmod +x one-click-installer",
-        "sudo apt autoremove; sudo apt clean",
-        "sudo ./one-click-installer"
+        "sudo ./one-click-installer",
+        "sudo apt upgrade -y",
+        "sudo apt autoremove; sudo apt clean"
     ]
   }
 }
