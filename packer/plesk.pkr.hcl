@@ -41,11 +41,11 @@ build {
   ]
 
 
-provisioners {
-  file {
+provisioner "file" {
+  
     source      = ".ssh/authorized_keys"
     destination = "/root/.ssh/authorized_keys"
-  }
+  
 }
 
 provisioner "shell" {
