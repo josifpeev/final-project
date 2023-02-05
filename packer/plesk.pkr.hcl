@@ -13,12 +13,12 @@ source "amazon-ebs" "ubuntu" {
   region        = "eu-west-1"
 
 # Add 20GB volume
-  launch_block_device_mappings {
-    device_name = "/dev/sda1"
-    volume_size = 20
-    volume_type = "gp2"
-    delete_on_termination = true
-    }
+#  launch_block_device_mappings {
+#    device_name = "/dev/sda1"
+#    volume_size = 20
+#    volume_type = "gp2"
+#    delete_on_termination = true
+#    }
 
   source_ami_filter {
     filters = {
