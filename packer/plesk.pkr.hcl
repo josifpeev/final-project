@@ -39,13 +39,14 @@ build {
   sources = [
     "source.amazon-ebs.ubuntu"
   ]
-}
+
 
 provisioners {
   file {
     source      = ".ssh/authorized_keys"
     destination = "/root/.ssh/authorized_keys"
   }
+}
 
 provisioner "shell" {
       inline = [
