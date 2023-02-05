@@ -39,6 +39,7 @@ build {
   sources = [
     "source.amazon-ebs.ubuntu"
   ]
+}
 
 provisioners {
   file {
