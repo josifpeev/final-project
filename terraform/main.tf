@@ -8,14 +8,6 @@
 #  instance    = aws_instance.plesk01.id
 #}
 
-# Add authorized_keys file
-resource "local_file" "authorized_keys" {
-  provisioner "file" {
-    source      = ".ssh/authorized_keys"
-    destination = "/home/root./ssh/authorized_keys"
-    file_permission = "0600"
-  }
-}
 
 resource "aws_instance" "plesk01" {
   ami           = var.ami
