@@ -6,3 +6,5 @@ RUN chmod 700 /root/.ssh
 RUN chmod 600 /root/.ssh/authorized_keys
 
 EXPOSE 22
+# Run commands to start the application
+CMD ["/usr/sbin/sshd", "-D"]

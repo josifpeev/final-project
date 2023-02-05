@@ -45,7 +45,7 @@ jobs:
         id: deploy-apprunner
         uses: awslabs/amazon-app-runner-deploy@main
         with:
-          service: app-runner-git-deploy-service
+          service: app-runner-git-deploy-ansible
           image: ${{ steps.build-image.outputs.image }}
           access-role-arn: ${{ secrets.ROLE_ARN }}
           region: eu-west-1
