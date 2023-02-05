@@ -1,11 +1,11 @@
 name: Create Ansible ECR
 
-#on:
-#  push:
+on:
+  push:
     branches:
       - main
-#    paths:
-#      - ansible
+    paths:
+      - ansible
 
 jobs:
   deploy-ansible:
