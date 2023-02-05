@@ -20,6 +20,9 @@ resource "aws_instance" "plesk01" {
     tags = {
     Name = "plesk01.final-project.com"
   }
+    root_block_device {
+    encrypted = true
+  }
   
 }
 
