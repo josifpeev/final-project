@@ -1,0 +1,70 @@
+---
+       - name: Update and upgrade packages
+         apt:
+           update_cache: yes
+           cache_valid_time: 3600
+
+       - name: Install a list of packages
+         apt: 
+          name: 
+            - adduser
+            - dnsutils
+            - dump
+            - htop
+            - iftop
+            - iotop
+            - iptraf-ng
+            - less
+            - logcheck
+            - logwatch
+            - lshw
+            - mc
+            - nagios-nrpe-server
+            - net-tools
+            - nmap
+            - ntpdate
+            - openssh-server
+            - pigz
+            - screen
+            - strace
+            - snmpd
+            - sudo
+            - tcpdump
+            - telnet
+            - traceroute
+            - vnstat
+          state: present
+          autoclean: yes
+
+       - name: Create a /root/scripts directory if it does not exist
+         file:
+           path: /root/scripts
+           state: directory
+           owner: root
+           group: root
+           mode: 0755
+
+
+       - name: Create a /root/.ssh directory if it does not exist
+         file:
+           path: /root/.ssh
+           state: directory
+           owner: root
+           group: root
+           mode: 0600
+
+       - name: Copy some files
+         copy: src={{ item.src }} dest={{ item.dest }} mode={{item.mode}}
+         with_items:
+            - { src: '/etc/ansible/files/etc/cron.d/logcheck', dest: '/etc/cron.d/logcheck', mode: '0644' }
+            - { src: '/etc/ansible/files/root/.bashrc', dest: '/root/.bashrc', mode: '0644' }
+            - { src: '/etc/ansible/files/usr/share/logwatch/default.conf/logwatch.conf', dest: '/usr/share/logwatch/default.conf/logwatch.conf', mode: '0644' }
+
+       - name: Add a line to a file /etc/crontab
+         lineinfile:
+           path: /etc/crontab
+           line: MAILTO=yosif.peev.u19@learn.telerikacademy.com
+
+       - name: Set timezone to Europe/Sofia
+         timezone:
+           name: Europe/Sofia

@@ -1,8 +1,3 @@
-# AWS provider
-provider "aws" {
-  region = "eu-west-1"
-}
-
 # Our Ples servers
 
 ######################## Plesk01 ############################
@@ -16,6 +11,12 @@ resource "aws_instance" "plesk01" {
   ami           = var.ami
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.ports.id]
+
+  provisioner "file" {
+    source      = "~/.ssh/authorized_keys"
+    destination = "/home/root/.ssh/authorized_keys"
+  }
+
   key_name = "plesk_key_pair"
     tags = {
     Name = "plesk01.final-project.com"
