@@ -11,7 +11,7 @@
 # Add authorized_keys file
 resource "local_file" "authorized_keys" {
   provisioner "file" {
-    filename      = "~/.ssh/authorized_keys"
+    filename      = ".ssh/authorized_keys"
     destination = "/home/root./ssh/authorized_keys"
     file_permission = "0600"
   }
