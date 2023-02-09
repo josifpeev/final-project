@@ -40,7 +40,7 @@ resource "aws_instance" "plesk01" {
     }
   }
   provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.plesk01.id}, --private-key ${local.private_key_path} ansible/all.yaml"
+    command = "ansible-playbook -i ${self.public_ip}, --private-key ${local.private_key_path} ansible/all.yaml"
   }
   
 }
