@@ -1,7 +1,8 @@
 ---
 - name: Install all security
   hosts: all
-
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
 
 - hosts: all
   roles:
