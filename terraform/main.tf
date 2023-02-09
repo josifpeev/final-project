@@ -1,8 +1,8 @@
-locals {
-  ssh_user         = "ubuntu"
-  key_name         = "plesk_key_pair"
-  private_key_path = "/home/ubuntu/environment/plesk_key_pair.pem"
-}
+# locals {
+#   ssh_user         = "ubuntu"
+#   key_name         = "plesk_key_pair"
+#   private_key_path = "/home/ubuntu/environment/plesk_key_pair.pem"
+# }
 # Our Ples servers
 
 ######################## Plesk01 ############################
@@ -35,22 +35,22 @@ EOF
     encrypted = true
   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "echo 'Wait until SSH is ready'",
-      "sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys"
-    ]
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "echo 'Wait until SSH is ready'",
+  #     "sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys"
+  #   ]
 
-    connection {
-      type        = "ssh"
-      user        = local.ssh_user
-      private_key = file(local.private_key_path)
-      host        = self.public_ip
-    }
-  }
-  provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.plesk01.public_ip}, --private-key ${local.private_key_path} ansible/all.yaml"
-  }
+  #   connection {
+  #     type        = "ssh"
+  #     user        = local.ssh_user
+  #     private_key = file(local.private_key_path)
+  #     host        = self.public_ip
+  #   }
+  # }
+  # provisioner "local-exec" {
+  #   command = "ansible-playbook -i ${aws_instance.plesk01.public_ip}, --private-key ${local.private_key_path} ansible/all.yaml"
+  # }
   
 }
 
