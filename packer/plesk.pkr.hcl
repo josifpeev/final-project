@@ -50,8 +50,8 @@ provisioner "shell" {
 #        "sudo ./one-click-installer",
 #        "sudo apt clean",
 #        "sudo apt autoremove -y",
-        "sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys"
-
+#        "sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys"
+         "sudo apt install python -y"
 
     ]
   }
