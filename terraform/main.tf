@@ -2,11 +2,11 @@
 
 ######################## Plesk01 ############################
 
-# Add ElasticIP
-#resource "aws_eip" "plesk01" {
-#  vpc         = true
-#  instance    = aws_instance.plesk01.id
-#}
+Add ElasticIP
+resource "aws_eip" "plesk01" {
+ vpc         = true
+ instance    = aws_instance.plesk01.id
+}
 
 
 resource "aws_instance" "plesk01" {
