@@ -32,4 +32,4 @@ EOF
   
 }
 
-################ End configuration for Plesk01 #############
+################ End configuration for Plesk01 -#############
