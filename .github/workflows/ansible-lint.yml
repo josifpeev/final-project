@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - ansible/hosts
+      - terraform/ansible/hosts
 
 jobs:
   build:
