@@ -35,8 +35,8 @@ resource "aws_instance" "plesk01" {
     connection {
       type        = "ssh"
       user        = local.ssh_user
-      private_key = file(local.private_key_path)
-      host        = aws_instance.plesk01
+      private_key = file(local.private_key_path.id)
+      host        = aws_instance.plesk01.id
     }
   }
   provisioner "local-exec" {
