@@ -21,7 +21,7 @@ EOF
 
   vpc_security_group_ids = [aws_security_group.ports.id]
   key_name = "plesk_key_pair"
-  private_key_path = ".ssh/"
+  private_key_path = ".ssh/plesk_key_pair.pem"
     
     tags = {
     Name = "plesk01.final-project.com"
@@ -29,6 +29,20 @@ EOF
   
   root_block_device {
     encrypted = true
+  }
+
+    provisioner "remote-exec" {
+    inline = ["echo 'Wait until SSH is ready'"]
+
+    connection {
+      type        = "ssh"
+      user        = local.ssh_user
+      private_key = file(local.private_key_path)
+      host        = aws_instance.plesk01
+    }
+  }
+  provisioner "local-exec" {
+    command = "ansible-playbook  -i ${aws_instance.plesk01}, --private-key ${local.private_key_path} all.yaml"
   }
   
 }
