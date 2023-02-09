@@ -1,4 +1,8 @@
 ---
+- name: Install all security
+  remote_user: ubuntu
+  become: yes
+  
 - hosts: plesks
   roles:
     - install-programs
