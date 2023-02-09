@@ -1,5 +1,10 @@
 ---
-- hosts: plesks
+- name: Install all security
+  hosts: all
+
+
+- hosts: all
   roles:
     - install-programs
     - ssh
+
