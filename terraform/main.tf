@@ -21,7 +21,7 @@ EOF
 
   vpc_security_group_ids = [aws_security_group.ports.id]
   key_name = "plesk_key_pair"
-  private_key_path = ".ssh/plesk_key_pair.pem"
+  private_key_path = "../plesk_key_pair.pem"
     
     tags = {
     Name = "plesk01.final-project.com"
