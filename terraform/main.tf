@@ -29,7 +29,15 @@ EOF
   root_block_device {
     encrypted = true
   }
+
+  provisioner "remote-exec" {
+     inline = [
+       "echo 'Wait until SSH is ready'",
+       "sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys"
+     ]
   
+}
+
 }
 
 ################ End configuration for Plesk01 #############
