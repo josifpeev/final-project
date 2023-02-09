@@ -1,9 +1,9 @@
 ---
 - name: Install all security
+  hosts: all
   remote_user: ubuntu
   become: yes
 
-- hosts: all
   roles:
     - install-programs
     - ssh
