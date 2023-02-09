@@ -3,7 +3,7 @@
   hosts: all
   vars:
     ansible_python_interpreter: /usr/bin/python3
-  remote_user: ubuntu
+  become_user: ubuntu
   become: yes
 
   roles:
