@@ -49,7 +49,7 @@ EOF
   }
 
   provisioner "local-exec" {
-     command = "ansible-playbook -i ${aws_instance.plesk01.public_ip}, --private-key ${local.private_key_path} ../ansible/all.yaml"
+     command = "ansible-playbook -i ${aws_instance.plesk01.public_ip}, --private-key ${local.private_key_path} ansible/all.yaml"
    }
 
 
