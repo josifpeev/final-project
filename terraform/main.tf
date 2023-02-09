@@ -10,7 +10,7 @@
 
 
 resource "aws_instance" "plesk01" {
-  ami           = var.ami
+  ami           =  var.ami
   instance_type = "t2.micro"
 
   user_data = <<EOF
