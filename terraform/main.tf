@@ -1,8 +1,9 @@
-# locals {
-#   ssh_user         = "ubuntu"
-#   key_name         = "plesk_key_pair"
-#   private_key_path = "/home/ubuntu/environment/plesk_key_pair.pem"
-# }
+locals {
+  vpc_id           = "vpc-0524e910b8fcbb139"
+  ssh_user         = "ubuntu"
+  key_name         = "plesk_key_pair"
+  private_key_path = "/home/ubuntu/environment/plesk_key_pair.pem"
+}
 # Our Ples servers
 
 ######################## Plesk01 ############################
