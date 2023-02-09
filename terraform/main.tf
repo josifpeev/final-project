@@ -29,7 +29,7 @@ resource "aws_instance" "plesk01" {
     encrypted = true
   }
 
-    provisioner "remote-exec" {
+  provisioner "remote-exec" {
     inline = ["echo 'Wait until SSH is ready'"]
 
     connection {
