@@ -1,3 +1,8 @@
+locals {
+  ssh_user         = "ubuntu"
+  key_name         = "plesk_key_pair"
+  private_key_path = "/home/ubuntu/environment/plesk_key_pair.pem"
+}
 # Our Ples servers
 
 ######################## Plesk01 ############################
@@ -35,7 +40,12 @@ EOF
        "echo 'Wait until SSH is ready'",
        "sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys"
      ]
-  
+    connection {
+       type        = "ssh"
+       user        = local.ssh_user
+       private_key = file(local.private_key_path)
+       host        = self.public_ip
+     }
 }
 
 }
