@@ -1,6 +1,5 @@
 ---
 - name: Add users in system
-plqkalqkaff
   user:
     name: "{{item.name}}"
     shell: "{{item.shell}}"
