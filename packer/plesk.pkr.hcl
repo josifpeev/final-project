@@ -51,7 +51,7 @@ provisioner "shell" {
 #        "sudo apt clean",
 #        "sudo apt autoremove -y",
 #        "sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys"
-         "sudo apt install python -y"
+         "sudo apt install python3 -y"
 
     ]
   }
