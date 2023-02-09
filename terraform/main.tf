@@ -1,3 +1,8 @@
+locals {
+  ssh_user         = "ubuntu"
+  key_name         = "plesk_key_pair"
+  private_key_path = "/home/ubuntu/environment/plesk_key_pair.pem"
+}
 # Our Ples servers
 
 ######################## Plesk01 ############################
