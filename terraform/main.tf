@@ -12,6 +12,7 @@
 resource "aws_instance" "plesk01" {
   ami           = var.ami
   instance_type = "t2.micro"
+  private_key_path = "../plesk_key_pair.pem"
 
   user_data = <<EOF
 #cloud-config
@@ -21,8 +22,7 @@ EOF
 
   vpc_security_group_ids = [aws_security_group.ports.id]
   key_name = "plesk_key_pair"
-  private_key_path = "../plesk_key_pair.pem"
-    
+      
     tags = {
     Name = "plesk01.final-project.com"
   }
