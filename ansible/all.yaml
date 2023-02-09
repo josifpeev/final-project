@@ -1,5 +1,0 @@
----
-- hosts: plesks
-  roles:
-    - install-programs
-    - ssh

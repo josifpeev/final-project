@@ -16,7 +16,7 @@ jobs:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
     - uses: actions/checkout@v3
       with:
-        fetch-depth: 0
+        fetch-depth: 4
 
     - name: Lint Ansible Playbook
       # replace "master" with any valid ref
