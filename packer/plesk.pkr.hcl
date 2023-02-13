@@ -12,17 +12,17 @@ source "amazon-ebs" "ubuntu" {
   instance_type = "t2.micro"
   region        = "eu-west-1"
 
-## Add 12GB volume
-#  launch_block_device_mappings {
-#    device_name = "/dev/sda1"
-#    volume_size = 12
-#    volume_type = "gp2"
-#    delete_on_termination = true
-#    }
+# Add 10GB volume
+  launch_block_device_mappings {
+    device_name = "/dev/sda1"
+    volume_size = 10
+    volume_type = "gp2"
+    delete_on_termination = true
+    }
 
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
+      name                = "ubuntu/images/ubuntu-focal-20.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
       
