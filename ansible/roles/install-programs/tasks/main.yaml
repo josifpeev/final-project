@@ -5,7 +5,7 @@
            cache_valid_time: 3600
 
        - name: Install a list of packages
-         ansible.builtin.apt: 
+          ansible.builtin.apt: 
           name: 
             - adduser
             - dnsutils
