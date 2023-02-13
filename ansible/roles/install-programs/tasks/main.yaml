@@ -41,14 +41,14 @@
     group: root
     mode: 0755
 - name: Create a /root/.ssh directory if it does not exist
-  file:
+  ansible.builtin.file:
     path: /root/.ssh
     state: directory
     owner: root
     group: root
     mode: 0600
 - name: Copy some files
-  copy: 'src={{ item.src }} dest={{ item.dest }} mode={{item.mode}}'
+  ansible.builtin.copy: 'src={{ item.src }} dest={{ item.dest }} mode={{ item.mode }}'
   with_items:
     - src: ../ansible/files/etc/cron.d/logcheck
       dest: /etc/cron.d/logcheck
@@ -60,7 +60,7 @@
       dest: /usr/share/logwatch/default.conf/logwatch.conf
       mode: '0644'
 - name: Add a line to a file /etc/crontab
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/crontab
     line: MAILTO=yosif.peev.u19@learn.telerikacademy.com
 - name: Set timezone to Europe/Sofia
