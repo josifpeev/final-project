@@ -39,14 +39,14 @@
     state: directory
     owner: root
     group: root
-    mode: 493
+    mode: 0755
 - name: Create a /root/.ssh directory if it does not exist
   file:
     path: /root/.ssh
     state: directory
     owner: root
     group: root
-    mode: 384
+    mode: 0600
 - name: Copy some files
   copy: 'src={{ item.src }} dest={{ item.dest }} mode={{item.mode}}'
   with_items:
