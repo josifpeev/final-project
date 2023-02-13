@@ -3,9 +3,6 @@
   hosts: all
   vars:
     ansible_python_interpreter: /usr/bin/python3
-  become_method: enable
-  become_user: ubuntu
-  become: yes
 
 - hosts: all
   roles:
