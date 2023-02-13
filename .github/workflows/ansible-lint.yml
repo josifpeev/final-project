@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - ansible/files
-      - ansible/roles
+      - ansible/files/*
+      - ansible/roles/*
       - ansible/all.yaml
 
 jobs:
