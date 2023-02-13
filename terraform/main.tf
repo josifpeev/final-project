@@ -21,7 +21,7 @@ resource "aws_instance" "plesk01" {
   user_data = <<EOF
 #cloud-config
 ssh_authorized_keys:
-  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCGDf/JQFwPxLHI33dPxyAIImARZFdiOGmPcK3TkjqTxV0l97qjea+RxNl2ciF/qme8oSU3docyoyazd1/ivy81+1PzaR7vhxlG6eumjfN0RynC84+kTxc69vu25p0G5VU3xd8c4LI6NJ/OOKWDxUN7xeHTT1TgRc2Xh4OfEPgdsqC0bsSzrScQv2eRh3fSQjF+wYOv0gL6i8TuFRnCwhzkJddnlNA4/Po7LnZDfRvsRAhOgcc9zrbAVHcwDs+osngfWZ58UOYtDmSxV2UwN8BauNLyuxzwRDU7uTv+IaQDrshxsfZvHKHoD+KBWkpf3BR8FInJ0aiK75SznOi2u44/d+oNExZ0AeYYCIP7UipwIW/+IwWJVAb//HOfogqHKWmCo2+BhllRSao6o8UZ5xbwLaxCnRi3pv1yZOkOm1dEQPWkqQsadfXfQiDoyV0wE6JvI7Of9exua8PQT54BL95Kqaw9sZ7jymSPqSaA5b314fY9+B4xDL7POHHBtaNxp5U= root@aws
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6DbLd15aeA+vM7IuJCS0c3/cbAxFeLBAW6W3AvViX/Gnw4u4YG2TqTS7YuEkQ+O+oSe36MyjcBTGAx6+YhFkrzFEmuf6fyW3lReSroPnJEw8e0PM3i/+mcv2N/Tz+gLeGBax2O1K8hW7kzhTFwXqIFTwf+5UqA6Yis9OBRndLqIIRlCVj06dQPNWRHcGlxBYeipZ0smgclagjiDJDYixyhcMdAMKc92A2hhPEiphJgeFzjlaAh+86b/H5NRtlnuhAbstAWQ8i7utT7BhCkffYHe5oo4yM3qxzETpMjdklHI5VD3Ufg/nUFGWrKYgpK4K0pFapnfLZJbbazbgyQ2Q+zmmLTK0SJXt5g/qRZktZbocFengproYAQHYc9fo90yZCJjRan9s5at/qjpQVmNU16Y1WpLDCfG5gMiukLpbmCC7lznho2/yDpmwgdkIDLMSomWKViqlNi74H5iPp2KeM6JccMXIrooq5PoT7wZGgl2SUFYGkGJoYcKyWGzRnCFM= root@aws
 EOF
 
   vpc_security_group_ids = [aws_security_group.ports.id]
@@ -37,6 +37,7 @@ EOF
 
   provisioner "remote-exec" {
      inline = [
+       "sleep 40",
        "echo 'Wait until SSH is ready'",
        "sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys"
      ]
@@ -49,7 +50,7 @@ EOF
   }
 
   provisioner "local-exec" {
-     command = "ansible-playbook -b -i ${aws_instance.plesk01.public_ip}, --private-key ${local.private_key_path} ansible/all.yaml"
+     command = "ansible-playbook -b -i ${aws_instance.plesk01.public_ip}, --private-key ${local.private_key_path} ../ansible/all.yaml"
    }
 
 
