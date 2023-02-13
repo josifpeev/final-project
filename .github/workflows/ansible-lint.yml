@@ -10,19 +10,19 @@ on:
       - ansible/all.yaml
 
 jobs:
-  build:
+  lint:
 
     runs-on: ubuntu-latest
 
     steps:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
       with:
         fetch-depth: 4
 
     - name: Lint Ansible Playbook
       # replace "master" with any valid ref
-      uses: ansible/ansible-lint-action@v4
+      uses: ansible/ansible-lint-action@v6
       with:
         path: "ansible"
         # [required]
