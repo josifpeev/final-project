@@ -31,7 +31,7 @@ source "amazon-ebs" "ubuntu" {
     most_recent = true
     owners      = ["099720109477"]
   }
-  ssh_username = "root"
+  ssh_username = "ubuntu"
 }
 
 build {
@@ -40,17 +40,30 @@ build {
     "source.amazon-ebs.ubuntu"
   ]
 
-provisioner "shell" {
-      inline = [
-        "sudo apt update",
-        "sudo apt upgrade -y",
-        "sudo wget https://autoinstall.plesk.com/one-click-installer",
-        "sudo chmod +x one-click-installer",
-        "sudo ./one-click-installer",
-        "sudo apt clean",
-        "sudo apt autoremove -y",
+provisioner "file" {
+  source = "sources.list"
+  destination = "/home/ubuntu/sources.list"
+}
 
-    ]
+# provisioner "shell" {
+#       inline = [
+#         "sudo cp /home/ubuntu/sources.list /etc/apt/sources.list",
+#         "sudo rm /home/ubuntu/sources.list",
+#         "sudo apt update",
+#         "sudo apt upgrade -y",
+#         "sudo wget https://autoinstall.plesk.com/one-click-installer",
+#         "sudo chmod +x one-click-installer",
+#         "sudo ./one-click-installer",
+#         "sudo apt clean",
+#         "sudo apt autoremove -y",
+
+#     ]
+#   }
+
+  provisioner "shell" {
+    script       = "init.sh"
+    pause_before = "10s"
   }
+
 } 
 
