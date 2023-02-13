@@ -1,22 +1,22 @@
----
 - name: Add users in system
   ansible.builtin.user:
-    name: "{{ item.name }}"
-    shell: "{{ item.shell }}"
-    comment: "{{ item.comment }}"
-    password: "{{ item.password }}"
-    groups: "{{ item.groups }}"
+    name: '{{ item.name }}'
+    shell: '{{ item.shell }}'
+    comment: '{{ item.comment }}'
+    password: '{{ item.password }}'
+    groups: '{{ item.groups }}'
   with_items:
-     - {name: peev, shell: /bin/bash, comment: Josif Peev, password: $6$ur7zN3/6$TLqg7TwwVhKkmgqOtM8QrtIb8QR6Kmz..nFV7pFUPeffu/sFDAtsdgAk8LQNEDMO8B7envoV5WZ6y9Lu1jUjI., groups: ssh}
-
-
+    - name: peev
+      shell: /bin/bash
+      comment: Josif Peev
+      password: >-
+        $6$ur7zN3/6$TLqg7TwwVhKkmgqOtM8QrtIb8QR6Kmz..nFV7pFUPeffu/sFDAtsdgAk8LQNEDMO8B7envoV5WZ6y9Lu1jUjI.
+      groups: ssh
 - name: Add the user root to ssh group
   ansible.builtin.user:
     name: root
     comment: root
     group: ssh
-
-
 - name: Copy ssh keys
   ansible.builtin.copy:
     src: ../ansible/files/root/.ssh/authorized_keys2
@@ -24,11 +24,10 @@
     owner: root
     group: root
     mode: 0600
-
 - name: Add a line to a file /etc/sudoers
   ansible.builtin.lineinfile:
-     path: /etc/sudoers
-     line: "{{ item.line }}"
+    path: /etc/sudoers
+    line: '{{ item.line }}'
   with_items:
-       - { line: root             ALL=(ALL) ALL }
-       - { line: peev            ALL=(ALL) ALL }
+    - line: root             ALL=(ALL) ALL
+    - line: peev            ALL=(ALL) ALL
