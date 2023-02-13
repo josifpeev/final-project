@@ -40,11 +40,6 @@ build {
     "source.amazon-ebs.ubuntu"
   ]
 
-provisioner "file" {
-  source = "sources.list"
-  destination = "/etc/apt/sources.list"
-}
-
 provisioner "shell" {
       inline = [
         "sudo apt update",
