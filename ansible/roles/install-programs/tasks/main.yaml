@@ -34,7 +34,7 @@
     state: present
     autoclean: 'yes'
 - name: Create a /root/scripts directory if it does not exist
-  file:
+  ansible.builtin.file:
     path: /root/scripts
     state: directory
     owner: root
