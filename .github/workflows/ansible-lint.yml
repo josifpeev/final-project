@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - terraform/ansible/hosts
+      - ansible/
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
 
     - name: Lint Ansible Playbook
       # replace "master" with any valid ref
-      uses: ansible/ansible-lint-action@v6
+      uses: ansible/ansible-lint-action@v4
       with:
         path: "terraform/ansible"
         # [required]
