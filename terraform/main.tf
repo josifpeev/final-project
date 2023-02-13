@@ -5,7 +5,7 @@ locals {
 }
 # Our Ples servers
 
-######################## Plesk01 ############################
+######################## Plesk01 ###########################
 
 # Add ElasticIP
 #resource "aws_eip" "plesk01" {
