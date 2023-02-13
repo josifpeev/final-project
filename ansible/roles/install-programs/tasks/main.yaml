@@ -68,4 +68,3 @@
        - name: Set timezone to Europe/Sofia
          timezone:
            name: Europe/Sofia
-#
