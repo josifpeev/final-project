@@ -12,10 +12,10 @@ source "amazon-ebs" "ubuntu" {
   instance_type = "t2.micro"
   region        = "eu-west-1"
 
-# Add 15GB volume
+## Add 12GB volume
 #  launch_block_device_mappings {
 #    device_name = "/dev/sda1"
-#    volume_size = 15
+#    volume_size = 12
 #    volume_type = "gp2"
 #    delete_on_termination = true
 #    }
